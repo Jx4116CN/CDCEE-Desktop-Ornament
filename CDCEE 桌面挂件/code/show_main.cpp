@@ -62,7 +62,7 @@ void show_main()
 {
 	SDL_Event event;
 
-	SDL_FPS fps(20);
+	SDL_FPS fps(15);
 
 	SDL_Surface* surf_title = NULL;
 	SDL_Texture* ture_title = NULL;
@@ -80,10 +80,15 @@ void show_main()
 	SDL_Texture* ture_date = NULL;
 
 init:
+	TTF_SetFontSizeDPI(font_msyh, rect_main.w / 15 * 72.0f / DPI, DPI, DPI);
 	SDL_FreeSurface(surf_title);
 	SDL_DestroyTexture(ture_title);
 	surf_title = TTF_RenderUTF8_LCD(font_msyh, text_title.c_str(), colorFG_title, colorBG_title);
 	ture_title = SDL_CreateTextureFromSurface(rdr_main, surf_title);
+	if (rect_title.w <= 0) rect_title.w = surf_title->w;
+	if (rect_title.h <= 0) rect_title.h = surf_title->h;
+	if (rect_title.x < 0) rect_title.x = (rect_main.w - rect_title.w) / 2;
+	if (rect_title.y < 0) rect_title.y = 0;
 
 again1:
 
@@ -93,11 +98,19 @@ again1:
 
 	GetLocalTime(&now_time);
 	CalculateTimeDifference(now_time, target_time);
-	sprintf_s(text_date, "%d天%d时%d分%d秒", timediff.days, timediff.hours, timediff.minutes, timediff.seconds);
+	sprintf_s(text_date, "%s%d天%d时%d分%d.%ds", text_CD, timediff.days, timediff.hours, timediff.minutes, timediff.seconds, timediff.milliseconds);
+	TTF_SetFontSizeDPI(font_msyh, rect_main.w / 17 * 72.0f / DPI, DPI, DPI);
 	SDL_FreeSurface(surf_date);
 	SDL_DestroyTexture(ture_date);
 	surf_date = TTF_RenderUTF8_LCD(font_msyh, text_date, colorFG_CD, colorBG_CD);
 	ture_date = SDL_CreateTextureFromSurface(rdr_main, surf_date);
+	if (default_rect_CD)
+	{
+		rect_CD.w = surf_date->w;
+		rect_CD.h = surf_date->h;
+	}
+	if (rect_CD.x < 0) rect_CD.x = (rect_main.w - rect_CD.w) / 2;
+	if (rect_CD.y < 0) rect_CD.y = rect_title.h;
 	SDL_RenderCopy(rdr_main, ture_date, NULL, &rect_CD);
 
 	SDL_RenderPresent(rdr_main);

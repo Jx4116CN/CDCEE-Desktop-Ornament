@@ -4,7 +4,7 @@
 
 int main()
 {
-	Save_cfg();
+	//Save_cfg();
 	Init_main();
 	show_main();
 

@@ -96,8 +96,8 @@ void Load_cfg()
 		file.read((char*)&colorBG_main, sizeof(SDL_Color));
 		file.close();
 	}
-	if (rect_main.w <= 0) rect_main.w = screenW / 8;
-	if (rect_main.h <= 0) rect_main.h = rect_main.w / 2;
+	if (rect_main.w <= 0) rect_main.w = screenW / 4;
+	if (rect_main.h <= 0) rect_main.h = rect_main.w / 6;
 	if (rect_main.x < 0) rect_main.x = (screenW - rect_main.w) / 2;
 	if (rect_main.y < 0) rect_main.y = 0;
 
@@ -110,10 +110,6 @@ void Load_cfg()
 		file.read((char*)&colorFG_title, sizeof(SDL_Color));
 		file.close();
 	}
-	if (rect_title.w <= 0) rect_title.w = rect_main.w / 4 * 3;
-	if (rect_title.h <= 0) rect_title.h = rect_main.h / 3;
-	if (rect_title.x < 0) rect_title.x = (rect_main.w - rect_title.w) / 2;
-	if (rect_title.y < 0) rect_title.y = 0;
 
 	file.open(cfgPath_title_text, std::ios::in);
 	if (file.is_open())
@@ -132,10 +128,8 @@ void Load_cfg()
 		file.read((char*)&target_time, sizeof(SYSTEMTIME));
 		file.close();
 	}
-	if (rect_CD.w <= 0) rect_CD.w = rect_title.w;
-	if (rect_CD.h <= 0) rect_CD.h = rect_title.h;
-	if (rect_CD.x < 0) rect_CD.x = (rect_main.w - rect_CD.w) / 2;
-	if (rect_CD.y < 0) rect_CD.y = rect_title.y + rect_title.h * 3 / 2;
+	if (rect_CD.w <= 0 || rect_CD.h <= 0)
+		default_rect_CD = true;
 }
 void Save_cfg_UI()
 {

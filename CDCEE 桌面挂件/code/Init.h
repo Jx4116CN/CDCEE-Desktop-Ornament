@@ -1,4 +1,4 @@
-#pragma comment(linker,"/subsystem:\"windows\" /entry:\"mainCRTStartup\"")
+//#pragma comment(linker,"/subsystem:\"windows\" /entry:\"mainCRTStartup\"")
 
 #include "SDL2++/SDL2++.h"
 
@@ -11,6 +11,8 @@
 #include <string>
 #include <fstream>
 #include <windows.h>
+
+#define DPI 96
 
 __declspec(selectany) int screenW = GetSystemMetrics(SM_CXSCREEN);
 __declspec(selectany) int screenH = GetSystemMetrics(SM_CYSCREEN);
@@ -35,7 +37,7 @@ void Load_cfg();
 void Save_cfg();
 __declspec(selectany) const char* cfgPath_main = "config\\UI\\win_main.cfg";
 __declspec(selectany) SDL_Rect rect_main = { -1, -1, 0, 0 };
-__declspec(selectany) SDL_Color colorBG_main = { 0, 0, 0, 0x88 };
+__declspec(selectany) SDL_Color colorBG_main = { 0, 0, 0, 0x66 };
 __declspec(selectany) const char* cfgPath_title = "config\\UI\\title.cfg";
 __declspec(selectany) bool show_title = true;
 __declspec(selectany) SDL_Rect rect_title = { -1, -1, 0, 0 };
@@ -45,8 +47,9 @@ __declspec(selectany) const char* cfgPath_title_text = "config\\UI\\title.txt";
 __declspec(selectany) std::string text_title = "高考倒计时";
 __declspec(selectany) const char* cfgPath_CD = "config\\UI\\CD.cfg";
 __declspec(selectany) SDL_Rect rect_CD = { -1, -1, 0, 0 };
+__declspec(selectany) bool default_rect_CD = false;
 __declspec(selectany) SDL_Color colorFG_CD = { 255, 0, 0, 255 };
-__declspec(selectany) SDL_Color colorBG_CD = { 255, 255, 255, 0x88 };
+__declspec(selectany) SDL_Color colorBG_CD = { 0, 0, 0, 255 };
 #define MAX_CD_LEN 128
-__declspec(selectany) char text_CD[MAX_CD_LEN] = "%d天%d时%d分%d秒";
+__declspec(selectany) char text_CD[MAX_CD_LEN] = "距高考还剩";
 __declspec(selectany) SYSTEMTIME target_time = { 0, 0, 0, 0, 0, 0, 0, 0 };
