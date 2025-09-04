@@ -1,4 +1,4 @@
-//#pragma comment(linker,"/subsystem:\"windows\" /entry:\"mainCRTStartup\"")
+#pragma comment(linker,"/subsystem:\"windows\" /entry:\"mainCRTStartup\"")
 
 #include "SDL2++/SDL2++.h"
 
@@ -12,6 +12,7 @@
 #include <fstream>
 #include <windows.h>
 
+#define TITLE "CDCEE"
 #define DPI 96
 
 __declspec(selectany) int screenW = GetSystemMetrics(SM_CXSCREEN);

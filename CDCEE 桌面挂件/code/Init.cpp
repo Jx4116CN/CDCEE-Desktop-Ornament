@@ -24,7 +24,7 @@ void Init_SDL()
 void Init_main_device()
 {
 	win_main = SDL_CreateWindow(
-		"CDCEE",
+		TITLE,
 		rect_main.x,
 		rect_main.y,
 		rect_main.w,
