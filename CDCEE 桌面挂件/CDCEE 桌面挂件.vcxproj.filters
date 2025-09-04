@@ -24,6 +24,9 @@
     <ClInclude Include="code\SDL2++\SDL_Algorithm.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="code\SDL2++\SDL2++.cpp">
@@ -41,5 +44,10 @@
     <ClCompile Include="code\SDL2++\SDL_Algorithm.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

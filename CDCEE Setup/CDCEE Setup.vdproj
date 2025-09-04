@@ -51,6 +51,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_274300BC1A884F438DB07C2EC7E55C80"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_B692D60ED5B27138095EA00F1854CB64"
         "OwnerKey" = "8:_D38E78973B5D48FE83BF7C98F919B668"
         "MsmSig" = "8:_UNDEFINED"
@@ -109,6 +115,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -125,6 +147,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -264,6 +294,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_274300BC1A884F438DB07C2EC7E55C80"
+            {
+            "SourcePath" = "8:..\\CDCEE 桌面挂件\\icon\\icon.ico"
+            "TargetName" = "8:icon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_D5BD0CC824C8447E862C6927BE76DE34"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B692D60ED5B27138095EA00F1854CB64"
@@ -468,6 +518,17 @@
                         {
                         }
                     }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_D5BD0CC824C8447E862C6927BE76DE34"
+                    {
+                    "Name" = "8:icon"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_1CCC3289D18B4C74BBC93E5681BD6783"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
         }
@@ -487,7 +548,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:CDCEE"
         "ProductCode" = "8:{20E65638-93CA-4714-AB65-41E07A60F4D5}"
-        "PackageCode" = "8:{53F0991D-E39F-4E65-8FC1-D021CA1321AA}"
+        "PackageCode" = "8:{F2206035-C363-4C28-9B55-F8AFB7B1825D}"
         "UpgradeCode" = "8:{6C4B67FE-7293-4B9D-8662-8EEDB20BD024}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -609,7 +670,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_103C0FBB190646158696FC368E881C3E"
             {
-            "Name" = "8:Shortcut to %s主输出 from CDCEE 桌面挂件 (Active)"
+            "Name" = "8:CDCEE桌面挂件"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -618,7 +679,21 @@
             "Target" = "8:_D38E78973B5D48FE83BF7C98F919B668"
             "Folder" = "8:_BCFE45A855D64CA397454730764483A4"
             "WorkingFolder" = "8:_DAF2FD8192F24F3385F6D21A80D8A9FA"
-            "Icon" = "8:"
+            "Icon" = "8:_274300BC1A884F438DB07C2EC7E55C80"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_9DC41B8C91314F48AFA0C09A87FB49AA"
+            {
+            "Name" = "8:CDCEE桌面挂件"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_D38E78973B5D48FE83BF7C98F919B668"
+            "Folder" = "8:_842535E1510A40F081D6846BB2DCD955"
+            "WorkingFolder" = "8:_DAF2FD8192F24F3385F6D21A80D8A9FA"
+            "Icon" = "8:_274300BC1A884F438DB07C2EC7E55C80"
             "Feature" = "8:"
             }
         }

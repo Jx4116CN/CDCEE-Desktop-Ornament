@@ -22,6 +22,7 @@
     <ClInclude Include="code\Init.h" />
     <ClInclude Include="code\SDL2++\SDL2++.h" />
     <ClInclude Include="code\SDL2++\SDL_Algorithm.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="code\Init.cpp" />
@@ -29,6 +30,9 @@
     <ClCompile Include="code\SDL2++\SDL2++.cpp" />
     <ClCompile Include="code\SDL2++\SDL_Algorithm.cpp" />
     <ClCompile Include="code\show_main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -132,7 +136,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
