@@ -1,5 +1,10 @@
 #include "Init.h"
 
+SDL_HitTestResult hitTestCallback(SDL_Window* window, const SDL_Point* area, void* data)
+{
+	return SDL_HITTEST_DRAGGABLE;
+}
+
 void Init_SDL()
 {
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0)
@@ -40,6 +45,7 @@ void Init_main_device()
 		return;
 	}
 	SDL_SetWindowOpacity(win_main, (float)colorBG_main.a / 255.0f);
+	SDL_SetWindowHitTest(win_main, hitTestCallback, nullptr);
 	SDL_ShowWindow(win_main);
 
 	rdr_main = SDL_CreateRenderer(win_main, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
@@ -50,7 +56,6 @@ void Init_main_device()
 		return;
 	}
 	SDL_SetRenderDrawBlendMode(rdr_main, SDL_BLENDMODE_BLEND);
-	SDL_SetRenderDrawColor(rdr_main, colorBG_main.r, colorBG_main.g, colorBG_main.b, colorBG_main.a);
 
 	font_msyh = TTF_OpenFont(path_msyh, 128);
 	if (font_msyh == nullptr)
@@ -96,8 +101,8 @@ void Load_cfg()
 		file.read((char*)&colorBG_main, sizeof(SDL_Color));
 		file.close();
 	}
-	if (rect_main.w <= 0) rect_main.w = screenW / 4;
-	if (rect_main.h <= 0) rect_main.h = rect_main.w / 6;
+	if (rect_main.w <= 0) rect_main.w = screenW / 3;
+	if (rect_main.h <= 0) rect_main.h = rect_main.w / 7;
 	if (rect_main.x < 0) rect_main.x = (screenW - rect_main.w) / 2;
 	if (rect_main.y < 0) rect_main.y = 0;
 

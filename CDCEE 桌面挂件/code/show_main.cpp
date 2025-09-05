@@ -80,10 +80,10 @@ void show_main()
 	SDL_Texture* ture_date = NULL;
 
 init:
-	TTF_SetFontSizeDPI(font_msyh, rect_main.w / 15 * 72.0f / DPI, DPI, DPI);
+	TTF_SetFontSizeDPI(font_msyh, rect_main.w / 19 * 72.0f / DPI, DPI, DPI);
 	SDL_FreeSurface(surf_title);
 	SDL_DestroyTexture(ture_title);
-	surf_title = TTF_RenderUTF8_LCD(font_msyh, text_title.c_str(), colorFG_title, colorBG_title);
+	surf_title = TTF_RenderUTF8_Blended(font_msyh, text_title.c_str(), colorFG_title);
 	ture_title = SDL_CreateTextureFromSurface(rdr_main, surf_title);
 	if (rect_title.w <= 0) rect_title.w = surf_title->w;
 	if (rect_title.h <= 0) rect_title.h = surf_title->h;
@@ -92,6 +92,7 @@ init:
 
 again1:
 
+	SDL_SetRenderDrawColor(rdr_main, colorBG_main.r, colorBG_main.g, colorBG_main.b, colorBG_main.a);
 	SDL_RenderClear(rdr_main);
 
 	SDL_RenderCopy(rdr_main, ture_title, NULL, &rect_title);
@@ -102,7 +103,7 @@ again1:
 	TTF_SetFontSizeDPI(font_msyh, rect_main.w / 17 * 72.0f / DPI, DPI, DPI);
 	SDL_FreeSurface(surf_date);
 	SDL_DestroyTexture(ture_date);
-	surf_date = TTF_RenderUTF8_LCD(font_msyh, text_date, colorFG_CD, colorBG_CD);
+	surf_date = TTF_RenderUTF8_Blended(font_msyh, text_date, colorFG_CD);
 	ture_date = SDL_CreateTextureFromSurface(rdr_main, surf_date);
 	if (default_rect_CD)
 	{
@@ -119,6 +120,17 @@ again1:
 	{
 		if (SDL_PollEvent(&event))
 		{
+			switch (event.type)
+			{
+			case SDL_QUIT:
+				SDL_FreeSurface(surf_title);
+				SDL_DestroyTexture(ture_title);
+				SDL_FreeSurface(surf_date);
+				SDL_DestroyTexture(ture_date);
+				return;
+			default:
+				break;
+			}
 			continue;
 		}
 		else break;
